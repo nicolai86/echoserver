@@ -11,17 +11,17 @@
 
 (defn echo [reader writer]
   (let [input (. reader readLine)]
-          (. writer write (generate-output input))
-          (. writer flush)
-          (print (generate-input-display input))
-          (flush)))
+    (. writer write (generate-output input))
+    (. writer flush)
+    (print (generate-input-display input))
+    (flush)))
 
 (defn setup-echo [in out]
   (let [reader (BufferedReader. (InputStreamReader. in))
-          writer (OutputStreamWriter. out)]
-      (loop []
-        (echo reader writer)
-        (recur))))
+        writer (OutputStreamWriter. out)]
+    (loop []
+      (echo reader writer)
+      (recur))))
 
 (defn main []
   (println "Hello, World!")
