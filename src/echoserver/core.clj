@@ -7,10 +7,10 @@
   (let [reader (BufferedReader. (InputStreamReader. in))
           writer (OutputStreamWriter. out)]
       (loop []
-        (let [input (.readLine reader)]
-          (.write writer input)
-          (.write writer "\n")
-          (.flush writer)
+        (let [input (. reader readLine)]
+          (. writer write input)
+          (. writer write "\n")
+          (. writer flush)
           (println input))
         (recur))))
 
