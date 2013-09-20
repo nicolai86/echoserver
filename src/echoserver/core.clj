@@ -10,6 +10,7 @@
                       (loop []
                         (let [input (read-line)]
                           (print input)
+                          (.println System/out input)
                           (flush))
                         (recur))))]
     (clojure.contrib.server-socket/create-server 8080 echo)))
