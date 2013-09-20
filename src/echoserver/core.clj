@@ -14,9 +14,6 @@
           (println input))
         (recur))))
 
-(defn echo-server []
-  (clojure.contrib.server-socket/create-server 8080 echo))
-
 (defn main []
   (println "Hello, World!")
-  (echo-server))
+  (clojure.contrib.server-socket/create-server 8080 echo))
