@@ -14,6 +14,11 @@ Now run `telnet localhost 8080` and echo away :)
 
 I'm learning clojure and I'd like to write a simple threaded move-based game server in clojure. This is a first step for me, playing with clojure & java interoperability.
 
+## TODO
+
+- add some tests
+- restructure the core
+
 ## License
 
 Copyright © 2013 Raphael Randschau
