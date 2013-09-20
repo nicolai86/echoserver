@@ -8,10 +8,10 @@
           writer (OutputStreamWriter. out)]
       (loop []
         (let [input (. reader readLine)]
-          (. writer write input)
+          (. writer write (str "> " input))
           (. writer write "\n")
           (. writer flush)
-          (println input))
+          (println (str "< " input )))
         (recur))))
 
 (defn main []
