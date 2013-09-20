@@ -3,15 +3,20 @@
 
 (import '[java.io BufferedReader InputStreamReader OutputStreamWriter])
 
-(defn- echo [in out]
+(defn generate-output [input]
+  (str "> " input "\n"))
+
+(defn generate-input-display [input]
+  (str "< " input "\n"))
+
+(defn echo [in out]
   (let [reader (BufferedReader. (InputStreamReader. in))
           writer (OutputStreamWriter. out)]
       (loop []
         (let [input (. reader readLine)]
-          (. writer write (str "> " input))
-          (. writer write "\n")
+          (. writer write (generate-output input))
           (. writer flush)
-          (println (str "< " input )))
+          (print (generate-input-display input)))
         (recur))))
 
 (defn main []

@@ -2,6 +2,10 @@
   (:require [clojure.test :refer :all]
             [echoserver.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest generated-output-test
+  (testing "response output"
+    (is (= "> foo\n" (generate-output "foo")))))
+
+(deftest generated-input-display
+  (testing "request display"
+    (is (= "< bar\n" (generate-input-display "bar")))))
