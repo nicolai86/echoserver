@@ -4,13 +4,13 @@
 (import '[java.io BufferedReader InputStreamReader OutputStreamWriter])
 
 (defn- echo [in out]
-  (let [inp (BufferedReader. (InputStreamReader. in))
-          outp (OutputStreamWriter. out)]
+  (let [reader (BufferedReader. (InputStreamReader. in))
+          writer (OutputStreamWriter. out)]
       (loop []
-        (let [input (.readLine inp)]
-          (.write outp input)
-          (.write outp "\n")
-          (.flush outp)
+        (let [input (.readLine reader)]
+          (.write writer input)
+          (.write writer "\n")
+          (.flush writer)
           (println input))
         (recur))))
 
