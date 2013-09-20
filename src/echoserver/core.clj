@@ -5,15 +5,16 @@
 
 (defn echo-server []
   (letfn [(echo [in out]
-                    (binding [*in* (BufferedReader. (InputStreamReader. in))
-                              *out* (OutputStreamWriter. out)]
-                      (loop []
-                        (let [input (read-line)]
-                          (print input)
-                          (.println System/out input)
-                          (flush))
-                        (recur))))]
-    (clojure.contrib.server-socket/create-server 8080 echo)))
+    (let [inp (BufferedReader. (InputStreamReader. in))
+          outp (OutputStreamWriter. out)]
+      (loop []
+        (let [input (.readLine inp)]
+          (.write outp input)
+          (.write outp "\n")
+          (.flush outp)
+          (println input))
+        (recur))))]
+  (clojure.contrib.server-socket/create-server 8080 echo)))
 
 (defn main []
   (println "Hello, World!")
