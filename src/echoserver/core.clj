@@ -16,7 +16,8 @@
         (let [input (. reader readLine)]
           (. writer write (generate-output input))
           (. writer flush)
-          (print (generate-input-display input)))
+          (print (generate-input-display input))
+          (flush))
         (recur))))
 
 (defn main []
